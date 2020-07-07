@@ -1,0 +1,11 @@
+<RCC>
+  <qresource prefix="newPrefix">
+    <file>work.png</file>
+    <file>wallet.png</file>
+    <file>City.png</file>
+    <file>City.png</file>
+    <file>world.png</file>
+    <file>signup.png</file>
+    <file>startup.png</file>
+  </qresource>
+</RCC>
