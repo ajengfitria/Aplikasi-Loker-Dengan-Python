@@ -66,11 +66,11 @@ border-color: rgb(85, 85, 127);</string>
 color: rgb(85, 85, 255);</string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="Menu">
      <attribute name="title">
-      <string>                          Home                          </string>
+      <string>                      Homepage                      </string>
      </attribute>
      <widget class="QLabel" name="label">
       <property name="geometry">
@@ -96,12 +96,12 @@ color: rgb(85, 85, 255);</string>
        <string>Lowongan Kerja Indonesia</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="btn_cari">
+     <widget class="QPushButton" name="btnHomeCari">
       <property name="geometry">
        <rect>
-        <x>410</x>
+        <x>370</x>
         <y>320</y>
-        <width>311</width>
+        <width>351</width>
         <height>41</height>
        </rect>
       </property>
@@ -277,7 +277,7 @@ color: rgb(85, 85, 255);</string>
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>190</y>
+        <y>130</y>
         <width>271</width>
         <height>191</height>
        </rect>
@@ -292,8 +292,8 @@ color: rgb(85, 85, 255);</string>
      <widget class="QLabel" name="label_3">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>170</y>
+        <x>20</x>
+        <y>90</y>
         <width>251</width>
         <height>71</height>
        </rect>
@@ -347,7 +347,7 @@ dengan mudah, hemat dan cepat</string>
        <string>Silahkan Isi Data Anda</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="btn_daftar">
+     <widget class="QPushButton" name="btnDaftar">
       <property name="geometry">
        <rect>
         <x>330</x>
@@ -503,7 +503,7 @@ color: rgb(85, 85, 255);</string>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
-        <widget class="QRadioButton" name="QRadioButonLakilaki">
+        <widget class="QRadioButton" name="radL">
          <property name="font">
           <font>
            <family>Segoe UI Semibold</family>
@@ -521,7 +521,7 @@ color: rgb(85, 85, 255);</string>
         </widget>
        </item>
        <item>
-        <widget class="QRadioButton" name="QRadioButtonPerempuan">
+        <widget class="QRadioButton" name="radP">
          <property name="font">
           <font>
            <family>Segoe UI Semibold</family>
@@ -551,7 +551,7 @@ color: rgb(85, 85, 255);</string>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
-        <widget class="QLineEdit" name="QLineNama">
+        <widget class="QLineEdit" name="daftarNama">
          <property name="font">
           <font>
            <family>Segoe UI Light</family>
@@ -564,7 +564,7 @@ color: rgb(0, 0, 0);</string>
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="QLineEmail">
+        <widget class="QLineEdit" name="daftarEmail">
          <property name="font">
           <font>
            <family>Segoe UI Light</family>
@@ -577,7 +577,23 @@ color: rgb(0, 0, 0);</string>
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="QLinePasword">
+        <widget class="QLineEdit" name="daftarPassword">
+         <property name="font">
+          <font>
+           <family>Segoe UI Light</family>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);</string>
+         </property>
+         <property name="echoMode">
+          <enum>QLineEdit::Password</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="daftarAlamat">
          <property name="font">
           <font>
            <family>Segoe UI Light</family>
@@ -590,20 +606,7 @@ background-color: rgb(255, 255, 255);</string>
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="QLineAlamat">
-         <property name="font">
-          <font>
-           <family>Segoe UI Light</family>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">color: rgb(0, 0, 0);
-background-color: rgb(255, 255, 255);</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="lineEdit">
+        <widget class="QLineEdit" name="daftarHp">
          <property name="font">
           <font>
            <family>Segoe UI Light</family>
@@ -617,7 +620,7 @@ background-color: rgb(255, 255, 255);</string>
        </item>
       </layout>
      </widget>
-     <widget class="QCheckBox" name="checkBox">
+     <widget class="QCheckBox" name="checkData">
       <property name="geometry">
        <rect>
         <x>570</x>
@@ -726,7 +729,7 @@ background-color: rgb(255, 255, 255);</string>
        <string>Selamat Datang</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="btn_masuk">
+     <widget class="QPushButton" name="btnLogin">
       <property name="geometry">
        <rect>
         <x>240</x>
@@ -775,7 +778,7 @@ color: rgb(85, 85, 255);</string>
        <string>Belum memiliki akun ?</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="btn_buat">
+     <widget class="QPushButton" name="btnBuat">
       <property name="geometry">
        <rect>
         <x>440</x>
@@ -811,7 +814,7 @@ color: rgb(85, 85, 255);</string>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_5">
        <item>
-        <widget class="QLineEdit" name="QLineEmail_2">
+        <widget class="QLineEdit" name="loginEmail">
          <property name="font">
           <font>
            <family>Segoe UI Light</family>
@@ -824,7 +827,7 @@ background-color: rgb(255, 255, 255);</string>
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="QLinePasword_2">
+        <widget class="QLineEdit" name="loginPassword">
          <property name="font">
           <font>
            <family>Segoe UI Light</family>
@@ -833,6 +836,9 @@ background-color: rgb(255, 255, 255);</string>
          <property name="styleSheet">
           <string notr="true">color: rgb(0, 0, 0);
 background-color: rgb(255, 255, 255);</string>
+         </property>
+         <property name="echoMode">
+          <enum>QLineEdit::Password</enum>
          </property>
         </widget>
        </item>

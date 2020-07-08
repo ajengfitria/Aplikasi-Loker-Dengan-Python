@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="newPrefix">
+    <file>CV.png</file>
     <file>work.png</file>
     <file>wallet.png</file>
     <file>City.png</file>
