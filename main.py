@@ -13,10 +13,7 @@ from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtSql import *
 import sqlite3
-from home import *
-#import nest_asyncio
-#nest_asyncio.apply()
-
+from afterlogin import *
 
 class Homepage(QWidget):
     #def __init__(self):
@@ -170,6 +167,8 @@ class Homepage(QWidget):
         self.label_3.setStyleSheet("color: rgb(255, 255, 255);\n"
 "color: rgb(255, 255, 255);")
         self.label_3.setObjectName("label_3")
+
+        #-----------tampilan tab Homepage----------#
         self.Login.addTab(self.Menu, "")
         self.Menu_2 = QWidget()
         self.Menu_2.setObjectName("Menu_2")
@@ -367,6 +366,8 @@ class Homepage(QWidget):
         self.label_27.setStyleSheet("image: url(img/signup.png);")
         self.label_27.setText("")
         self.label_27.setObjectName("label_27")
+
+        #-----------tampilan daftar / registrasi----------#
         self.Login.addTab(self.Menu_2, "")
         self.tab = QWidget()
         self.tab.setObjectName("tab")
@@ -470,6 +471,8 @@ class Homepage(QWidget):
         self.label_25.setStyleSheet("color: rgb(255, 255, 255);")
         self.label_25.setObjectName("label_25")
         self.verticalLayout_6.addWidget(self.label_25)
+
+        #-----------tampilan tab log in----------#
         self.Login.addTab(self.tab, "")
         self.label_17 = QLabel(self.centralwidget)
         self.label_17.setGeometry(QRect(320, 20, 171, 37))
@@ -526,20 +529,21 @@ class Homepage(QWidget):
         self.Login.setTabText(self.Login.indexOf(self.tab), _translate("MainPage", "                        Masuk                        "))
         self.label_17.setText(_translate("MainPage", "LOKERINDO"))
 
+    #---------------------------FUNCTION------------------------#
     #-------------------registrasi-----------------#
     def addAkun(self):
         idAkun = self.getRowCountAkun(MainPage) + 1
-        query = QSqlQuery()
         nama = self.daftarNama.text()
         email = self.daftarEmail.text()
-        password = self.daftarPassword.text()
         alamat = self.daftarAlamat.text()
+        password = self.daftarPassword.text()
         nohp = int(self.daftarHp.text())
         if self.radP.isChecked() :
             gender = 'Perempuan'
         else :
             gender = 'Laki-laki'
-        query.exec_("INSERT INTO akun VALUES (%d, '%s', '%s', '%s', '%s', %d, '%s')" %
+        queryAddAkun = QSqlQuery()
+        queryAddAkun.exec_("INSERT INTO akun VALUES (%d, '%s', '%s', '%s', '%s', %d, '%s', '', '', '')" %
                 (idAkun, nama, email, alamat, password, nohp, gender))
         QMessageBox.information(self, 'Berhasil Registrasi', 'Anda berhasil melakukan registrasi, silahkan ke halaman login untuk masuk')
         self.Login.setCurrentIndex(2)
@@ -568,29 +572,54 @@ class Homepage(QWidget):
         cursor = conn.cursor()
         cursor.execute('''SELECT email, pass FROM akun WHERE email = '%s' AND pass = '%s' ''' % (email, password))
         if cursor.fetchone():
-            self.openHome()
-            #home.Home()
+            query1 = QSqlQuery()
+            query1.exec_ ('''SELECT id FROM akun WHERE email = '%s' AND pass = '%s' ''' % (email, password))
+            query1.next()
+            getId = query1.value(0)
+
+            #------------------akses afterlogin--------------#
+            MainPage.close()
+            
+            Dialog = QDialog()
+            self.form = Ui_Dialog()
+            self.form.setupUi(Dialog)
+            self.form.getIdAkun(getId)
+            self.form.loadProfile(getId)
+            self.form.loadLamaran(getId)
+            self.form.labelId.setText(str(getId))
+            Dialog.show()
+            Dialog.exec_()
+
         else:
             QMessageBox.warning(self, 'Login Gagal', 'Email dan password tidak sesuai')
 
-    #---------------------akses home----------------------#
-    def openHome(self):
-        MainPage.close()
-        MainWindow = QMainWindow()
-        self.form = Home()
-        self.form.setupUi(MainWindow)
-        MainWindow.show()
+    #--------------------id akun-------------------------#
+    #def getIdAkun(self):
+        #pass
+
+    #---------------------akses Home----------------------#
+    #def openHome(self, email):
+        #MainPage.close()
+        
+        #MainWindow = QDialog()
+        #self.form = Ui_Dialog()
+        #self.form.setupUi(MainWindow)
+        #MainWindow.show()
+        #MainWindow.exec_()
+        
 
 if __name__ == "__main__":
     import sys
     app1 = QApplication(sys.argv)
 
+    #---------------connect database----------------#
     db = QSqlDatabase.addDatabase('QSQLITE')
     db.setDatabaseName('Lokerindo')
     if not db.open():
         print('ERROR: ' + db.lastError().text())
         sys.exit(1)
 
+    #---------------menjalankan gui----------------#
     MainPage = QMainWindow()
     ui = Homepage()
     ui.setupUi(MainPage)

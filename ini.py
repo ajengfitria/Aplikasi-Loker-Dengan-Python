@@ -6,17 +6,15 @@ def connect():
     if db.open():
         print('koneksi telah dibuat')
         query = QSqlQuery()
-        sql = '''Create TABLE lamaran(
-            noLam integer not null primary key,
-            idAkun integer,
-            posisi varchar(50), 
-            perusahaan varchar(50),
-            penempatan varchar(50),
-            tglSubmit date,
-            status varchar(30),
-            cv varchar(30)
-            )'''
-        query.exec_(sql)
+        id, nama, email = range(3)
+        query.exec_ ('SELECT * FROM akun')
+        print('Output data\t: ')
+        print('No.\tnama\tNo.HP')
+        while query.next():
+            id = query.value(id)
+            nama = query.value(nama)
+            email = query.value(email)
+            print('%d\t%s\t%s' % (id,nama,email))
 
     else:
         print('ERROR: ' + db.lastError().text())

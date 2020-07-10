@@ -15,10 +15,10 @@ def connect():
         query.exec_(sql)
 
         #Insert to akun table
-        sql = '''INSERT INTO akun VALUES(1, 'Ajeng Fitria', 'ajengfitria80@gmail.com','Cilacap','admin123',081328963818,'Perempuan','Mahasiswa','Coba','Pyhton Programmer')'''
-        query.exec_(sql)
-        if(query.exec_):
-            print('Data berhasil dimasukkan')
+        #sql = '''INSERT INTO akun VALUES(1, 'Ajeng Fitria', 'ajengfitria80@gmail.com','Cilacap','admin123',081328963818,'Perempuan','Mahasiswa','Coba','Pyhton Programmer')'''
+        #query.exec_(sql)
+        #if(query.exec_):
+            #print('Data berhasil dimasukkan')
 
     else:
         print('ERROR: ' + db.lastError().text())
