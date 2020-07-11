@@ -922,7 +922,7 @@ background-color: rgb(255, 255, 255);</string>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources>
-  <include location="New folder/sources.qrc"/>
+  <include location="img/sources.qrc"/>
  </resources>
  <connections/>
 </ui>

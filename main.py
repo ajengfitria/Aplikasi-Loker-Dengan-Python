@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'Menu.ui'
+# Form implementation generated from reading ui file 'main.ui'
 #
 # Created by: PyQt5 UI code generator 5.14.1
 #
@@ -583,7 +583,7 @@ class Homepage(QWidget):
             Dialog = QDialog()
             self.form = Ui_Dialog()
             self.form.setupUi(Dialog)
-            self.form.getIdAkun(getId)
+            #self.form.getIdAkun(getId)
             self.form.loadProfile(getId)
             self.form.loadLamaran(getId)
             self.form.labelId.setText(str(getId))
